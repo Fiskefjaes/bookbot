@@ -1,4 +1,9 @@
+import sys
 from stats import *
+
+if len(sys.argv) < 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
 
 
 def get_book_text(path_to_file):
@@ -27,7 +32,7 @@ def main(input_file):
 
 
 if __name__ == "__main__":
-    input_file = "books/frankenstein.txt"
-    main(input_file)
+    #input_file = sys.argv[1]
+    main(sys.argv[1])
 
            
