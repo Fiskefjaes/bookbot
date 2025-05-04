@@ -8,15 +8,22 @@ def get_book_text(path_to_file):
 
         
 def main(input_file):
-    file_contents = get_book_text(input_file)
-    num_words = word_counter(file_contents)
-    num_characters = character_counter(file_contents)
-    sorted_list = dictionary_sorter(num_characters)
+    file_contents = get_book_text(input_file) # Call function to get contents of file
+    num_words = word_counter(file_contents) # Call function in stats to get word count
+    num_characters = character_counter(file_contents) # Call function in stats to get character count
+    sorted_list = dictionary_sorter(num_characters) # Call function in stats to get a sorted list 
 
-    print(f"{num_words} words found in the document")
-    print(sorted_list)
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {input_file}...")
+    print("----------- Word Count ----------")
+    print(f"Found {num_words} total words")
+    print("--------- Character Count -------")
 
+    for entry in sorted_list:        
+        if entry["char"].isalpha():  # Check if the value of 'char' is alphabetic
+            print(f"{entry['char']}: {entry['num']}") 
 
+    print("============= END ===============")
 
 
 if __name__ == "__main__":
